@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head></head>
+<head>
+	<%- partial('_partial/header')%>
+	<%- partial('_partial/menu') %>
+
+</head>
 
 <body>
-	<%- partial('_partial/menu') %>
-	<%- partial('_partial/header', {title: 'hello world'}) %>
 	<%- body %>
 	<h2>footer</h2>
+
 </body>
+<%- partial('_partial/footer')%>
 
 </html>
