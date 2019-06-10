@@ -4,6 +4,44 @@
 <br />
 <% }) %>
 
+<!-- count how many rows there are and put it in a variable-->
+<!-- do the foreach loop where you get there names and put it in an array -->
+<!-- then for every 3 put them in a row -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=" col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+	<div class="card-deck">
+		<% site.posts.forEach(function(post){ %>
+
+
+		<div class="card">
+			<img class="card-img-top" src="images/seniorProject.png" alt="Card image cap">
+			<div class="overlayCard">
+				<div class="overlayCardText"><a href="<%- post.path %>">
+						<%- post.title %></a></a></div>
+			</div>
+		</div>
+		<% }) %>
+	</div>
+</div>
+
+
+
 <div class="container-fluid">
 	<div class="overflow-hidden">
 		<div class="overflow-visible">
@@ -30,10 +68,8 @@
 						<div class="aboutParagraph" data-aos="fade-left" data-aos-offset="120" data-aos-easing="ease-in-sine"
 						 data-aos-duration="500">
 							<p id="aboutParagraph">
-								I am currently a senior at Purdue University working towards a Bachelor’s degree in Computer Graphics
-								Technology
-								with a focus in Web Development and Design. I am also minoring in Film and Video studies. My interests are
-								graphics, web design and user experience.</p>
+								<%- site.data.homeData.AboutP %>
+							</p>
 						</div>
 						<div class="aboutParagraph" data-aos="fade-up-left" data-aos-offset="120" data-aos-easing="ease-in-sine"
 						 data-aos-duration="700">
@@ -59,53 +95,36 @@
 					<div class="row">
 						<div class=" col col-sm-12 col-md-12 col-lg-12 col-xl-12">
 							<div class="card-deck">
-								<div class="card">
-									<img class="card-img-top" src="images/seniorProject.png" alt="Card image cap">
-									<div class="overlayCard">
-										<div class="overlayCardText">Senior Project</div>
-									</div>
-								</div>
-								<div class="card">
-									<img class="card-img-top" src="images/dyslexyiaHome.png" alt="Card image cap">
-									<div class="overlayCard">
-										<div class="overlayCardText">Portfolio Website</div>
-									</div>
-								</div>
-								<div class="card">
-									<img class="card-img-top" src="images/ursJack.png" alt="Card image cap">
-									<div class="overlayCard">
-										<div class="overlayCardText">Learning Disability Website</div>
-									</div>
-								</div>
+									<%
+									var title;
+									var postList = []; %>
+								<%	if (site.posts){ 
+										site.posts.forEach(function(post){ %>
+											<div class="col-sm-4 my-4">
+												<div class="card">
+														<img class="card-img-top" src="{% asset_img post.path %}" alt="">
+														<div class="overlayCard">
+																<div class="overlayCardText"><a href="<%- post.path %>">
+																		<%- post.title %></a></div>
+															</div>
+														<!-- <div class="card-body">
+																<h2 class="card-title"></h2>
+														</div> -->
+												</div>
+											</div>
+											<%	});
+									}
+									else{
+										postList = site.posts;
+									}
+								%>
+								
 							</div>
 						</div>
 					</div>
 					<br />
 					<br />
-					<div class="row">
-						<div class=" col col-sm-12 col-md-12 col-lg-12 col-xl-12">
-							<div class="card-deck">
-								<div class="card">
-									<img class="card-img-top" src="images/anthroBubbles.png" alt="Card image cap">
-									<div class="overlayCard">
-										<div class="overlayCardText">Galaxie Website</div>
-									</div>
-								</div>
-								<div class="card">
-									<img class="card-img-top" src="images/anthroBubbles.png" alt="Card image cap">
-									<div class="overlayCard">
-										<div class="overlayCardText">Anthropology Bubbles</div>
-									</div>
-								</div>
-								<div class="card">
-									<img class="card-img-top" src="images/ursJack.png" alt="Card image cap">
-									<div class="overlayCard">
-										<div class="overlayCardText">Ignite the Night Invitation</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 					<br />
 					<br />
 					<span id="more">
